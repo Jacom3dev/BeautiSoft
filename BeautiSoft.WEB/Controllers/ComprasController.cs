@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace BeautiSoft.WEB.Controllers
 {
-    public class ProductosController : Controller
+    public class ComprasController : Controller
     {
-        public IActionResult ListarProductos()
+        public IActionResult ListarCompras()
         {
-            @ViewData["Title"] = "Productos";
+            @ViewData["Title"] = "Compras";
             return View();
         }
-
     }
 }
