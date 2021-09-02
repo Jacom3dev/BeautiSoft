@@ -1,0 +1,12 @@
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\bin\Debug\net5.0\BeautiSoft.DAL.deps.json
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\bin\Debug\net5.0\BeautiSoft.DAL.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\bin\Debug\net5.0\ref\BeautiSoft.DAL.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\bin\Debug\net5.0\BeautiSoft.DAL.pdb
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.csprojAssemblyReference.cache
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.AssemblyInfoInputs.cache
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.AssemblyInfo.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.csproj.CoreCompileInputs.cache
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\ref\BeautiSoft.DAL.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.pdb
