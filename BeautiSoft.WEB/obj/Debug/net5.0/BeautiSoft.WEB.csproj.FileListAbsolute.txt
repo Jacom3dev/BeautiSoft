@@ -358,5 +358,7 @@ C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\BeautiSoft.WEB.pdb
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\BeautiSoft.WEB.genruntimeconfig.cache
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Productos\ListarProductos.cshtml.g.cs
-C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Productos\ListarVentas.cshtml.g.cs
-C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Productos\ListarCompras.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Compras\ListarCompras.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Ventas\ListarVentas.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Clientes\CrearCliente.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Productos\CrearProducto.cshtml.g.cs

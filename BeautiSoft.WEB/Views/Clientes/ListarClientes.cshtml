@@ -1,60 +1,84 @@
 ﻿<div class="row">
     <div class="col mt-3">
-        <h3 class="text-danger">Clientes</h3>
+        <a asp-controller="Clientes"  asp-action="CrearCliente" class="btn btn-primary mb-3"><i class="fas fa-user-plus mr-2"></i>Crear Cliente</a>
         <table class="table table-bordered table-striped table-hover" id="tabla">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Nombre</th>
-                    <th>Apellidos</th>
+                    <th>Documento</th>
+                    <th>Tipo Documento</th>
                     <th>Correo</th>
-                    <th>Celular</th>
+                    <th>Telefono</th>
+                    <th>Dirrecion</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>1</td>
-                    <td>Jose julian</td>
-                    <td>Jacome M</td>
-                    <td>Jose@gamil.com</td>
-                    <td>72828292927</td>
+                    <td>Jose julian jacome</td>
+                    <td>1005441399</td>
+                    <td>C.C</td>
+                    <td>josejuliandlf@gmail.com</td>
+                    <td>3152232388</td>
+                    <td>Cr88 a16</td>
+                    <td>Activo</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>2</td>
-                    <td>Antonio</td>
-                    <td>Acosta M</td>
-                    <td>antonio@gamil.com</td>
-                    <td>72828292927</td>
+                    <td>Ali Alexander Rayo</td>
+                    <td>100554672</td>
+                    <td>C.C</td>
+                    <td>Rayo@gmail.com</td>
+                    <td>3152232388</td>
+                    <td>Cr33 b18</td>
+                    <td>Activo</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>3</td>
-                    <td>Marlon</td>
-                    <td>Acosta M</td>
-                    <td>Antonio@gamil.com</td>
-                    <td>72828292927</td>
+                    <td>Jose julian jacome</td>
+                    <td>1005441399</td>
+                    <td>C.C</td>
+                    <td>josejuliandlf@gmail.com</td>
+                    <td>3152232388</td>
+                    <td>Cr88 a16</td>
+                    <td>Activo</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>4</td>
-                    <td>Jose julian</td>
-                    <td>Jacome M</td>
-                    <td>Jose@gamil.com</td>
-                    <td>72828292927</td>
+                    <td>Ali Alexander Rayo</td>
+                    <td>100554672</td>
+                    <td>C.C</td>
+                    <td>Rayo@gmail.com</td>
+                    <td>3152232388</td>
+                    <td>Cr33 b18</td>
+                    <td>Activo</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
                 </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Antonio</td>
-                    <td>Acosta M</td>
-                    <td>antonio@gamil.com</td>
-                    <td>72828292927</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Marlon</td>
-                    <td>Acosta M</td>
-                    <td>Antonio@gamil.com</td>
-                    <td>72828292927</td>
-                </tr>
-
             </tbody>
         </table>
 

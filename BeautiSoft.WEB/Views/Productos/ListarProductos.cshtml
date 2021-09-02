@@ -1,1 +1,85 @@
-﻿<h1>Hola Productos</h1>
+﻿<div class="row">
+    <div class="col mt-3">
+        <a asp-controller="Productos" asp-action="CrearProducto" class="btn btn-primary mb-3"><i class="fas fa-shopping-basket mr-2"></i>Crear Producto</a>
+        <table class="table table-bordered table-striped table-hover" id="tabla">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Imagen</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>aaa5656</td>
+                    <td>Keratina</td>
+                    <td>50</td>
+                    <td>80.000</td>
+                    <td>Activo</td>
+                    <td>Imagen Producto</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>aaa5656</td>
+                    <td>Keratina</td>
+                    <td>50</td>
+                    <td>80.000</td>
+                    <td>Activo</td>
+                    <td>Imagen Producto</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>aaa5656</td>
+                    <td>Keratina</td>
+                    <td>50</td>
+                    <td>80.000</td>
+                    <td>Activo</td>
+                    <td>Imagen Producto</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>aaa5656</td>
+                    <td>Keratina</td>
+                    <td>50</td>
+                    <td>80.000</td>
+                    <td>Activo</td>
+                    <td>Imagen Producto</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/DataTable/tabla.js"></script>
+}
