@@ -10,3 +10,9 @@ C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.dll
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\ref\BeautiSoft.DAL.dll
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.pdb
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\bin\Debug\net5.0\BeautiSoft.DAL.runtimeconfig.json
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\bin\Debug\net5.0\BeautiSoft.DAL.runtimeconfig.dev.json
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\bin\Debug\net5.0\BeautiSoft.Models.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\bin\Debug\net5.0\BeautiSoft.Models.pdb
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.csproj.CopyComplete
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.DAL\obj\Debug\net5.0\BeautiSoft.DAL.genruntimeconfig.cache

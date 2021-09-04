@@ -1,1 +1,58 @@
-﻿<h1>Compras</h1>
+﻿@*@model List<BeautiSoft.Models.Compras> *@
+<div class="row">
+    <div class="col mt-3">
+        <a asp-controller="Compras" asp-action="CrearCompra" class="btn bg-site mb-3" style="color:white"><i class="fas fa-shopping-basket mr-2"></i>Crear Compra</a>
+        <table class="table table-bordered table-striped table-hover" id="tabla">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col"> Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>aaa5656</td>
+                    <td>Keratina</td>
+                    <td>50</td>
+                    <td>80.000</td>
+                    <td>Imagen Producto</td>
+                    <td>12/05/2021</td>
+                    <td>
+                        <div class="d-flex justify-content-between">
+                            <i title="Editar" class="far fa-edit text-warning"></i>
+                            <i title="Detalle" class="fas fa-book text-success"></i>
+                        </div>
+                    </td>
+                </tr>
+                @* @foreach(var Compra in Model)
+                    {
+                      <tr>
+                          <td scope="row" class="text-center">@Compra.Id</td>
+                          <td>@Compra.Nombre</td>
+                          <td class="text-center">@Comprao.Cantidad</td>
+                          <td class="text-center">@Comprao.Precio</td>
+                          <td>@Compra.Imagen</td>
+                          <td class="text-center">@Compra.Fecha</td>
+                          <td>
+                               <div class="d-flex justify-content-between">
+                                   <i title="Editar" class="far fa-edit text-warning"></i>
+                                   <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                                   <i title="Detalle" class="fas fa-book text-success"></i>
+                               </div>
+                           </td>
+                      </tr>
+                    }*@
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/DataTable/tabla.js"></script>
+}

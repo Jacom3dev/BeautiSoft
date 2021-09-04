@@ -6,3 +6,8 @@
     color: pink;
     font-size: 18px;
 }
+
+textarea {    
+    max-height: 200px;
+    min-height: 150px;
+}

@@ -13,5 +13,11 @@ namespace BeautiSoft.WEB.Controllers
             @ViewData["Title"] = "Ventas";
             return View();
         }
+        public IActionResult CrearVenta()
+        {
+            @ViewData["Title"] = "Ventas";
+            return View();
+        }
+
     }
 }

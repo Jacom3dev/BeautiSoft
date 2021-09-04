@@ -1,0 +1,12 @@
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\bin\Debug\net5.0\BeautiSoft.Servicios.deps.json
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\bin\Debug\net5.0\BeautiSoft.Servicios.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\bin\Debug\net5.0\ref\BeautiSoft.Servicios.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\bin\Debug\net5.0\BeautiSoft.Servicios.pdb
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\obj\Debug\net5.0\BeautiSoft.Servicios.csprojAssemblyReference.cache
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\obj\Debug\net5.0\BeautiSoft.Servicios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\obj\Debug\net5.0\BeautiSoft.Servicios.AssemblyInfoInputs.cache
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\obj\Debug\net5.0\BeautiSoft.Servicios.AssemblyInfo.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\obj\Debug\net5.0\BeautiSoft.Servicios.csproj.CoreCompileInputs.cache
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\obj\Debug\net5.0\BeautiSoft.Servicios.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\obj\Debug\net5.0\ref\BeautiSoft.Servicios.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Servicios\obj\Debug\net5.0\BeautiSoft.Servicios.pdb
