@@ -1,7 +1,7 @@
 ﻿@*@model List<BeautiSoft.Models.Compras> *@
 <div class="row">
     <div class="col mt-3">
-        <a asp-controller="Compras" asp-action="CrearCompra" class="btn bg-site mb-3" style="color:white"><i class="fas fa-shopping-basket mr-2"></i>Crear Compra</a>
+        <a onclick="mostrarModal('@Url.Action("CrearCompra","Compras",null,Context.Request.Scheme)','Registrar Compra')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Registrar Compra</a>
         <table class="table table-bordered table-striped table-hover" id="tabla">
             <thead>
                 <tr class="text-center">
@@ -30,23 +30,23 @@
                     </td>
                 </tr>
                 @* @foreach(var Compra in Model)
-                    {
-                      <tr>
-                          <td scope="row" class="text-center">@Compra.Id</td>
-                          <td>@Compra.Nombre</td>
-                          <td class="text-center">@Comprao.Cantidad</td>
-                          <td class="text-center">@Comprao.Precio</td>
-                          <td>@Compra.Imagen</td>
-                          <td class="text-center">@Compra.Fecha</td>
-                          <td>
-                               <div class="d-flex justify-content-between">
-                                   <i title="Editar" class="far fa-edit text-warning"></i>
-                                   <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                                   <i title="Detalle" class="fas fa-book text-success"></i>
-                               </div>
-                           </td>
-                      </tr>
-                    }*@
+                {
+                  <tr>
+                      <td scope="row" class="text-center">@Compra.Id</td>
+                      <td>@Compra.Nombre</td>
+                      <td class="text-center">@Comprao.Cantidad</td>
+                      <td class="text-center">@Comprao.Precio</td>
+                      <td>@Compra.Imagen</td>
+                      <td class="text-center">@Compra.Fecha</td>
+                      <td>
+                           <div class="d-flex justify-content-between">
+                               <i title="Editar" class="far fa-edit text-warning"></i>
+                               <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                               <i title="Detalle" class="fas fa-book text-success"></i>
+                           </div>
+                       </td>
+                  </tr>
+                }*@
             </tbody>
         </table>
 

@@ -58,7 +58,7 @@ namespace BeautiSoft.WEB
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Clientes}/{action=ListarClientes}/{id?}");
+                    pattern: "{controller=Login}/{action=Login}/{id?}");
             });
         }
     }

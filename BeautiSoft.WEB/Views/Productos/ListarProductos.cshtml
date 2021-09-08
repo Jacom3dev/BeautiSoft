@@ -1,6 +1,6 @@
 ﻿<div class="row">
     <div class="col mt-3">
-        <a asp-controller="Productos" asp-action="CrearProducto" class="btn btn-primary mb-3"><i class="fas fa-shopping-basket mr-2"></i>Crear Producto</a>
+        <a onclick="mostrarModal('@Url.Action("CrearProducto","Productos",null,Context.Request.Scheme)','Registrar Producto')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Registrar Producto</a>
         <table class="table table-bordered table-striped table-hover" id="tabla">
             <thead>
                 <tr>

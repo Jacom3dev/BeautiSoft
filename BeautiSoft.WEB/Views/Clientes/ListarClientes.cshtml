@@ -1,7 +1,7 @@
 ﻿<div class="row">
     <div class="col mt-3">
-        <a asp-controller="Clientes" asp-action="CrearCliente" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Crear Cliente</a>
-        <table class="table table-bordered table-striped table-hover" id="tabla">
+        <a onclick="mostrarModal('@Url.Action("CrearCliente","Clientes",null,Context.Request.Scheme)','Crear cliente')" class="btn bg-site mb-3" style="color:white" ><i class="fas fa-user-plus mr-2"></i>Crear Cliente </a>
+        <table class="table table-bordered table-striped table-hover" cellpadding="0" id="tabla">
             <thead>
                 <tr>
                     <th>Nombre</th>
