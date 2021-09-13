@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BeautiSoft.DAL\BeautiSoft.DAL.csproj" />
+    <ProjectReference Include="..\BeautiSoft.Servicios\BeautiSoft.Servicios.csproj" />
   </ItemGroup>
 
 </Project>

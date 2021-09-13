@@ -1,4 +1,6 @@
 using BeautiSoft.DAL;
+using BeautiSoft.Servicios.Interfaces;
+using BeautiSoft.Servicios.Servicios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +33,7 @@ namespace BeautiSoft.WEB
             services.AddDbContext<AppDbContext>(option =>
             option.UseSqlServer(conexion)
         );
+            services.AddScoped<IClienteServicios, ClienteServicios>();
 
         }
 

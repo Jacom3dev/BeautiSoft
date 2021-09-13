@@ -34,6 +34,7 @@
       "BeautiSoft.WEB/1.0.0": {
         "dependencies": {
           "BeautiSoft.DAL": "1.0.0",
+          "BeautiSoft.Servicios": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "5.0.4",
           "Microsoft.EntityFrameworkCore.Design": "5.0.9",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -1522,6 +1523,17 @@
         },
         "compile": {
           "BeautiSoft.Models.dll": {}
+        }
+      },
+      "BeautiSoft.Servicios/1.0.0": {
+        "dependencies": {
+          "BeautiSoft.DAL": "1.0.0"
+        },
+        "runtime": {
+          "BeautiSoft.Servicios.dll": {}
+        },
+        "compile": {
+          "BeautiSoft.Servicios.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3973,6 +3985,11 @@
       "sha512": ""
     },
     "BeautiSoft.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BeautiSoft.Servicios/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

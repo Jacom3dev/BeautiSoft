@@ -406,3 +406,5 @@ C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\ServiciosRealizados\ListarServiciosRealizados.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Servicios\CrearServicio.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Servicios\ListarServicios.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\bin\Debug\net5.0\BeautiSoft.Servicios.dll
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\bin\Debug\net5.0\BeautiSoft.Servicios.pdb

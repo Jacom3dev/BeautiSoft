@@ -1737,6 +1737,19 @@
         "runtime": {
           "bin/placeholder/BeautiSoft.Models.dll": {}
         }
+      },
+      "BeautiSoft.Servicios/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "BeautiSoft.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BeautiSoft.Servicios.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BeautiSoft.Servicios.dll": {}
+        }
       }
     }
   },
@@ -6364,11 +6377,17 @@
       "type": "project",
       "path": "../BeautiSoft.Models/BeautiSoft.Models.csproj",
       "msbuildProject": "../BeautiSoft.Models/BeautiSoft.Models.csproj"
+    },
+    "BeautiSoft.Servicios/1.0.0": {
+      "type": "project",
+      "path": "../BeautiSoft.Servicios/BeautiSoft.Servicios.csproj",
+      "msbuildProject": "../BeautiSoft.Servicios/BeautiSoft.Servicios.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "BeautiSoft.DAL >= 1.0.0",
+      "BeautiSoft.Servicios >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 5.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.9"
     ]
@@ -6402,6 +6421,9 @@
           "projectReferences": {
             "C:\\Users\\57311\\OneDrive\\Escritorio\\Asp .net\\BeautiSoft\\BeautiSoft.DAL\\BeautiSoft.DAL.csproj": {
               "projectPath": "C:\\Users\\57311\\OneDrive\\Escritorio\\Asp .net\\BeautiSoft\\BeautiSoft.DAL\\BeautiSoft.DAL.csproj"
+            },
+            "C:\\Users\\57311\\OneDrive\\Escritorio\\Asp .net\\BeautiSoft\\BeautiSoft.Servicios\\BeautiSoft.Servicios.csproj": {
+              "projectPath": "C:\\Users\\57311\\OneDrive\\Escritorio\\Asp .net\\BeautiSoft\\BeautiSoft.Servicios\\BeautiSoft.Servicios.csproj"
             }
           }
         }

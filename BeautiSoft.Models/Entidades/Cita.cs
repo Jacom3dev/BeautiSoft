@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 
 namespace BeautiSoft.Models.Entidades
 {
-    public class Agenda
+    public class Cita
     {
         [Key]
-        public Guid CitaID { get; set; } 
+        public Guid CitaID { get; set; }
         public DateTime Fecha { get; set; }
-        public Guid ServicioID { get; set; }
-        public virtual ServicioOfrecido Servicio { get; set; }
-        public string Documento { get; set; }
-        public virtual Cliente Cliente { get; set; }
         public string Lugar { get; set; }
+        public virtual List<DetalleCita> DetalleCitas { get; set; }
     }
 }

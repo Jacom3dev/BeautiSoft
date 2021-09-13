@@ -12,7 +12,6 @@ namespace BeautiSoft.Models.Entidades
         [Key]
         public Guid TipoDocumentoId { get; set; }
         public string Nombre { get; set; }
-
         public virtual List<Cliente> Clientes { get; set; }
     }
 }

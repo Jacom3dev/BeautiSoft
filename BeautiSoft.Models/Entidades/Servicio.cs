@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace BeautiSoft.Models.Entidades
 {
-    public class ServicioOfrecido
+    public class Servicio
     {
         [Key]
         public Guid ServicioID { get; set; }
         public string Nombre { get; set; }
         public string Detalle { get; set; }
         public bool Estado { get; set; }
-        public virtual List<ServicioOfrecido> Servicios { get; set; }
+        public virtual List<DetalleCita> DetalleCitas { get; set; }
     }
 }
