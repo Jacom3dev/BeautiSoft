@@ -1,41 +1,44 @@
 ﻿@model BeautiSoft.Models.Entidades.Cliente
-@{ 
+@{
     Layout = null;
 }
-<form method="post" class="bg-white rounded col-12"  asp-action="CrearCliente"  onsubmit="return jQueryAjaxPost(this, 'Crear cliente', '¿Desea crear el cliente?')" autocomplete="off">
+<form method="post" class="bg-white rounded col-12" asp-action="CrearCliente" onsubmit="return jQueryAjaxPost(this, 'Crear cliente', '¿Desea crear el cliente?')" autocomplete="off">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group row">
         <div class="col">
-            <input type="text" asp-for="Nombre" class="form-control" id="" placeholder="Nombre Completo">
+            <input asp-for="Nombre" class="form-control"  placeholder="Nombre Completo">
             <span asp-validation-for="Nombre" class="text-danger"></span>
         </div>
         <div class="col">
-            <input type="email" asp-for="Correo" class="form-control" id="" name="correo" placeholder="Correo">
+            <input  asp-for="Correo" class="form-control" placeholder="Correo">
             <span asp-validation-for="Correo" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">
         <div class="col">
-            <input type="text" asp-for="Documento" class="form-control" id="" name="documento" placeholder="Documento">
+            <input  asp-for="Documento" class="form-control" placeholder="Documento">
             <span asp-validation-for="Documento" class="text-danger"></span>
         </div>
         <div class="col">
             <select asp-items="@ViewBag.TiposDocumento" asp-for="TipoDocumentoId" class="form-control">
-                <option>--- Seleccione ---</option>
+                <option>Seleccione</option>
             </select>
             <span asp-validation-for="TipoDocumentoId" class="text-danger"></span>
         </div>
         <div class="col">
-            <input type="tel" class="form-control" asp-for="Telefono" id="" name="telefono" placeholder="Telefono">
+            <input class="form-control" asp-for="Telefono" placeholder="Telefono">
             <span asp-validation-for="Telefono" class="text-danger"></span>
         </div>
-       
+
     </div>
     <div class="form-group row">
         <div class="col">
-            <input type="text" class="form-control" asp-for="Dirreccion" placeholder="Dirreccion">
+            <input  class="form-control" asp-for="Dirreccion" placeholder="Dirreccion">
             <span asp-validation-for="Dirreccion" class="text-danger"></span>
         </div>
     </div>
-    <input type="submit" class="btn btn-info" name="name" value="Crear Cliente"/>
+    <input type="submit" class="btn btn-info" name="name" value="Crear Cliente" />
 </form>
+
+
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

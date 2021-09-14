@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static BeautiSoft.WEB.Helpers.Helper;
 
 namespace BeautiSoft.WEB.Controllers
 {
@@ -24,8 +25,8 @@ namespace BeautiSoft.WEB.Controllers
             return View();
         }
 
-       
 
+        [NoDirectAccessAttribute]
         [HttpGet]
         public async Task<IActionResult> CrearCliente()
         {
@@ -60,7 +61,8 @@ namespace BeautiSoft.WEB.Controllers
                 }
             }
             ViewBag.TiposDocumento = new SelectList(await _clienteServicios.TiposDocumento(), "TipoDocumentoId", "Nombre");
-            return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos", html = Helper.RenderRazorViewToString(this, "Crear", cliente) });
+            //return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos", html = Helper.RenderRazorViewToString(this, "Crear", cliente) });
+            return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos"});
 
         }
     }
