@@ -1,87 +1,56 @@
-﻿<div class="row">
+﻿@model IEnumerable<BeautiSoft.Models.Entidades.Cliente>
+<div class="row">
     <div class="col mt-3">
-        <a onclick="mostrarModal('@Url.Action("CrearCliente","Clientes",null,Context.Request.Scheme)','Crear cliente')" class="btn bg-site mb-3" style="color:white" ><i class="fas fa-user-plus mr-2"></i>Crear Cliente </a>
-        <table class="table table-bordered table-striped table-hover" cellpadding="0" id="tabla">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Documento</th>
-                    <th>Tipo Documento</th>
-                    <th>Correo</th>
-                    <th>Telefono</th>
-                    <th>Dirrecion</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Jose julian jacome</td>
-                    <td>1005441399</td>
-                    <td>C.C</td>
-                    <td>josejuliandlf@gmail.com</td>
-                    <td>3152232388</td>
-                    <td>Cr88 a16</td>
-                    <td>Activo</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Ali Alexander Rayo</td>
-                    <td>100554672</td>
-                    <td>C.C</td>
-                    <td>Rayo@gmail.com</td>
-                    <td>3152232388</td>
-                    <td>Cr33 b18</td>
-                    <td>Activo</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jose julian jacome</td>
-                    <td>1005441399</td>
-                    <td>C.C</td>
-                    <td>josejuliandlf@gmail.com</td>
-                    <td>3152232388</td>
-                    <td>Cr88 a16</td>
-                    <td>Activo</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Ali Alexander Rayo</td>
-                    <td>100554672</td>
-                    <td>C.C</td>
-                    <td>Rayo@gmail.com</td>
-                    <td>3152232388</td>
-                    <td>Cr33 b18</td>
-                    <td>Activo</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <a onclick="mostrarModal('@Url.Action("CrearCliente","Clientes",null,Context.Request.Scheme)','Crear cliente')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Crear Cliente </a>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover" cellpadding="0" id="tabla">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Documento</th>
+                        <th>Tipo Documento</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                        <th>Dirrecion</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cliente in Model)
+                    {
+                        <tr>
+                            <td>@cliente.Nombre</td>
+                            <td>@cliente.Documento</td>
+                            <td>@cliente.TipoDocument.Nombre</td>
+                            <td>@cliente.Correo</td>
+                            <td>@cliente.Telefono</td>
+                            <td>@cliente.Dirreccion</td>
+                            <td>
+                                @if (cliente.Estado)
+                                {
+                                    <span class="badge badge-primary">Activo</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">deshabilitado</span>
+                                }
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-between">
+                                    <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarCliente","Clientes",new {Documento=cliente.Documento},Context.Request.Scheme)','Editar cliente')"><i title="Editar" class="fas fa-edit"></i></a>
 
+                                    <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
+                                    <a class="text-success" href="javascript:mostrarModal('@Url.Action("DetalleCliente","Clientes",new{Documento=cliente.Documento},Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del cliente" class="fas fa-search"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

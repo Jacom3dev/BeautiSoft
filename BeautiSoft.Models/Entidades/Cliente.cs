@@ -9,6 +9,8 @@ namespace BeautiSoft.Models.Entidades
 {
     public class Cliente
     {
+        public readonly object TipoDocumento;
+
         [Key]
         [Required(ErrorMessage = "El Documento es requeridos")]
         [Range(9999, 999999999999999, ErrorMessage = "Documento inválido")]
@@ -28,6 +30,7 @@ namespace BeautiSoft.Models.Entidades
 
         [Required(ErrorMessage = "El tipo de documento es requerido")]
         public Guid TipoDocumentoId { get; set; }
+        public virtual TipoDocumento TipoDocument { get; set; }
         public virtual List<Cita> Citas { get; set; }
     }
 }

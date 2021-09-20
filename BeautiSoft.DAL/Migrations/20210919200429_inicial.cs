@@ -51,10 +51,10 @@ namespace BeautiSoft.DAL.Migrations
                 columns: table => new
                 {
                     Documento = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Dirreccion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Correo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Correo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Estado = table.Column<bool>(type: "bit", nullable: false),
                     TipoDocumentoId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },

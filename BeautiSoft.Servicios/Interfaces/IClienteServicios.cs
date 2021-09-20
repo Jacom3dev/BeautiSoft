@@ -8,7 +8,8 @@ namespace BeautiSoft.Servicios.Interfaces
     {
         Task<IEnumerable<TipoDocumento>> TiposDocumento();
         void Crear(Cliente cliente);
-
+        Task<IEnumerable<Cliente>> ListarClientes();
+        Task<Cliente> GetClienteId(string Documento);
         Task<bool> GuardarCambios();
     }
 }

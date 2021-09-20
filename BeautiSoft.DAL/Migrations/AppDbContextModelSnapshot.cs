@@ -47,6 +47,7 @@ namespace BeautiSoft.DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Correo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Dirreccion")
@@ -56,9 +57,11 @@ namespace BeautiSoft.DAL.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("TipoDocumentoId")
@@ -151,11 +154,13 @@ namespace BeautiSoft.DAL.Migrations
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Cliente", b =>
                 {
-                    b.HasOne("BeautiSoft.Models.Entidades.TipoDocumento", null)
+                    b.HasOne("BeautiSoft.Models.Entidades.TipoDocumento", "TipoDocument")
                         .WithMany("Clientes")
                         .HasForeignKey("TipoDocumentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("TipoDocument");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.DetalleCita", b =>

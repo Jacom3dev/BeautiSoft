@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautiSoft.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210910185322_inicial")]
+    [Migration("20210919200429_inicial")]
     partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,6 +49,7 @@ namespace BeautiSoft.DAL.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Correo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Dirreccion")
@@ -58,9 +59,11 @@ namespace BeautiSoft.DAL.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("TipoDocumentoId")
@@ -153,11 +156,13 @@ namespace BeautiSoft.DAL.Migrations
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Cliente", b =>
                 {
-                    b.HasOne("BeautiSoft.Models.Entidades.TipoDocumento", null)
+                    b.HasOne("BeautiSoft.Models.Entidades.TipoDocumento", "TipoDocument")
                         .WithMany("Clientes")
                         .HasForeignKey("TipoDocumentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("TipoDocument");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.DetalleCita", b =>

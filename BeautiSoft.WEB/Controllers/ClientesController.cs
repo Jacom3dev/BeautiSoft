@@ -19,10 +19,11 @@ namespace BeautiSoft.WEB.Controllers
         {
             _clienteServicios = clienteServicios;
         }
-        public IActionResult ListarClientes()
+        public async Task<IActionResult> ListarClientesAsync()
         {
-            @ViewData["Title"] = "Clientes";
-            return View();
+            ViewBag.Title = "Gestion de clientes";
+            return View(await _clienteServicios.ListarClientes());
+
         }
 
 
@@ -64,6 +65,40 @@ namespace BeautiSoft.WEB.Controllers
             //return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos", html = Helper.RenderRazorViewToString(this, "Crear", cliente) });
             return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos"});
 
+        }
+
+        public async Task<IActionResult> ActualizarCliente()
+        {
+            @ViewData["Title"] = "Crear Cliente";
+
+            ViewBag.TiposDocumento = new SelectList(await _clienteServicios.TiposDocumento(), "TipoDocumentoId", "Nombre");
+            return View();
+        }
+
+        [NoDirectAccessAttribute]
+        public async Task<IActionResult> DetalleCliente(string Documento)
+        {
+            if (Documento != null)
+            {
+                try
+                {
+                    var cliente = await _clienteServicios.GetClienteId(Documento);
+                    if (cliente != null)
+                    {
+                        return View(cliente);
+
+                    }
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+
+                }
+                catch (Exception)
+                {
+
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+
+            }
+            return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
         }
     }
 }

@@ -1,0 +1,37 @@
+﻿@model BeautiSoft.Models.Entidades.Cliente
+
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="table-responsive">
+        <table class="table" cellpadding="0" id="tabla">
+            <thead>
+                <tr class="text-center">
+                    <th>Nombre </th>
+                    <th>Documento</th>
+                    <th>Tipo</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Dirrecion</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Nombre</td>
+                    <td>@Model.Documento</td>
+                    <td>@Model.TipoDocument.Nombre</td>
+                    <td>@Model.Correo</td>
+                    <td>@Model.Telefono</td>
+                    <td>@Model.Dirreccion</td>
+                    <td>@Model.Estado</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tabla.js"></script>
+}
