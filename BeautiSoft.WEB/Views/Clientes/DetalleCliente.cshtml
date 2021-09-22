@@ -5,7 +5,7 @@
 }
 <div class="row">
     <div class="table-responsive">
-        <table class="table" cellpadding="0" id="tabla">
+        <table class="table table-bordered table-striped table-hover" id="tabla">
             <thead>
                 <tr class="text-center">
                     <th>Nombre </th>
@@ -25,7 +25,14 @@
                     <td>@Model.Correo</td>
                     <td>@Model.Telefono</td>
                     <td>@Model.Dirreccion</td>
-                    <td>@Model.Estado</td>
+                    @if (@Model.Estado)
+                    {
+                        <td>Activo</td>
+                    }
+                    else
+                    {
+                        <td>deshabilitado</td>
+                    }
                 </tr>
             </tbody>
         </table>

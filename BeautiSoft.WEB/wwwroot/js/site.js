@@ -52,6 +52,30 @@
         //to prevent default form submit event
         return false;
     }
+    mostrarModal2 = (url, title) => {
+        //alert("Ingresa a la función");
+        //alert(url);
+        /*alert(title);*/
+        //alert("ingresó");
+        $.ajax({
+            type: 'GET',
+            url: url,
+            success: function (res) {
+                if (res.isValid == false) {
+                    alert("falso");
+                    alertify.set('notifier', 'position', 'top-right');
+                    if (res.tipoError == "error")
+                        alertify.error(res.mensaje);
+                } else {
+                    $('#form-modal2 .modal-body').html(res);
+                    $('#form-modal2 .modal-title').html(title);
+                    $('#form-modal2').modal('show');
+                }
+            }
+        })
+        //to prevent default form submit event
+        return false;
+    }
 
 
 

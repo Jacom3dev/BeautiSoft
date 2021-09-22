@@ -29,7 +29,7 @@
                             <td>
                                 @if (cliente.Estado)
                                 {
-                                    <span class="badge badge-primary">Activo</span>
+                                    <span class="badge badge-warning">Activo</span>
                                 }
                                 else
                                 {
@@ -37,12 +37,23 @@
                                 }
                             </td>
                             <td>
-                                <div class="d-flex justify-content-between">
-                                    <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarCliente","Clientes",new {Documento=cliente.Documento},Context.Request.Scheme)','Editar cliente')"><i title="Editar" class="fas fa-edit"></i></a>
+                                
+                             <div class="d-flex justify-content-between">
+                                <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarCliente","Clientes",new {Documento=cliente.Documento},Context.Request.Scheme)','Editar cliente')"><i title="Editar" class="fas fa-edit"></i></a>
 
-                                    <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                                    <a class="text-success" href="javascript:mostrarModal('@Url.Action("DetalleCliente","Clientes",new{Documento=cliente.Documento},Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del cliente" class="fas fa-search"></i></a>
-                                </div>
+                                @if (cliente.Estado)
+                                {
+                                    <a class="text-danger" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Clientes",new {Documento=cliente.Documento },Context.Request.Scheme)')"><i title="Deshabilitar cliente" class="fas fa-user-slash"></i></a>
+
+                                }
+                                else
+                                {
+                                    <a class="text-warning" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Clientes",new{Documento=cliente.Documento},Context.Request.Scheme)')"><i title="Habilitar cliente" class="fas fa-user-check"></i></a>
+
+                                }
+
+                                <a class="text-success" href="javascript:mostrarModal2('@Url.Action("DetalleCliente","Clientes",new{Documento=cliente.Documento},Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del cliente" class="fas fa-search"></i></a>
+                            </div>
                             </td>
                         </tr>
                     }

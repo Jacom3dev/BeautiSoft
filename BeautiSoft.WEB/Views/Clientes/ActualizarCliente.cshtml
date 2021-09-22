@@ -2,8 +2,10 @@
 @{
     Layout = null;
 }
-<form method="post" class="bg-white rounded col-12" asp-action="CrearCliente" onsubmit="return jQueryAjaxPost(this, 'Crear cliente', '¿Desea crear el cliente?')" autocomplete="off">
+<form method="post" class="bg-white rounded col-12" asp-action="ActualizarCliente" onsubmit="return jQueryAjaxPost(this, 'Actualizar cliente', '¿Desea Actulizar el cliente?')" autocomplete="off">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Documento" />
+    <input type="hidden" asp-for="Estado" />
     <div class="form-group row">
         <div class="col">
             <input asp-for="Nombre" class="form-control" placeholder="Nombre Completo">
@@ -37,7 +39,7 @@
             <span asp-validation-for="Dirreccion" class="text-danger"></span>
         </div>
     </div>
-    <input type="submit" class="btn btn-info" name="name" value="Crear Cliente" />
+    <input type="submit" class="btn btn-info" name="name" value="Actulizar Cliente" />
 </form>
 
 

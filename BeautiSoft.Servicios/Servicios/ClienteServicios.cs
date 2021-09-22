@@ -35,7 +35,13 @@ namespace BeautiSoft.Servicios.Servicios
         {
             return await _context.Clientes.Include(x =>x.TipoDocument).ToListAsync();
         }
-        public async Task<Cliente> GetClienteId(string Documento)
+        public void ActualizarCliente(Cliente cliente)
+        {
+            if (cliente == null)
+                throw new ArgumentNullException(nameof(cliente));
+            _context.Update(cliente);
+        }
+        public async Task<Cliente> GetClienteDocumento(string Documento)
         {
             if (Documento == null)
                 throw new ArgumentNullException(nameof(Documento));

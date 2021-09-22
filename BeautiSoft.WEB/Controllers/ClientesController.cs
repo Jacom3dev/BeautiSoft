@@ -67,12 +67,61 @@ namespace BeautiSoft.WEB.Controllers
 
         }
 
-        public async Task<IActionResult> ActualizarCliente()
+     
+        [NoDirectAccessAttribute]
+        [HttpGet]
+        public async Task<IActionResult> ActualizarCliente(string  Documento)
         {
-            @ViewData["Title"] = "Crear Cliente";
+            if (Documento != null)
+            {
+                try
+                {
+                    var cliente = await _clienteServicios.GetClienteDocumento(Documento);
+                    if (cliente != null)
+                    {
+                        @ViewData["Title"] = "Actulizar Cliente";
 
+                        ViewBag.TiposDocumento = new SelectList(await _clienteServicios.TiposDocumento(), "TipoDocumentoId", "Nombre");
+                        return View(cliente);
+                    }
+                    else
+                        return Json(new { isValid = false, tipoError = "error", mensaje = "No existe el cliente" });
+                }
+                catch (Exception)
+                {
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ActualizarCliente(string Documento, Cliente cliente)
+        {
+            if (Documento != cliente.Documento)
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                   _clienteServicios.ActualizarCliente(cliente);
+                    var editar = await _clienteServicios.GuardarCambios();
+                    if (editar)
+                        return Json(new { isValid = true, operacion = "editar" });
+                    else
+                        return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+                catch (Exception)
+                {
+
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+            }
+            // si el modelo tiene errores en las validaciones
+            ViewBag.Titulo = "Editar cliente";
             ViewBag.TiposDocumento = new SelectList(await _clienteServicios.TiposDocumento(), "TipoDocumentoId", "Nombre");
-            return View();
+            return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos", html = Helper.RenderRazorViewToString(this, "Editar", cliente) });
         }
 
         [NoDirectAccessAttribute]
@@ -82,7 +131,7 @@ namespace BeautiSoft.WEB.Controllers
             {
                 try
                 {
-                    var cliente = await _clienteServicios.GetClienteId(Documento);
+                    var cliente = await _clienteServicios.GetClienteDocumento(Documento);
                     if (cliente != null)
                     {
                         return View(cliente);
@@ -100,5 +149,40 @@ namespace BeautiSoft.WEB.Controllers
             }
             return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
         }
+
+        [NoDirectAccessAttribute]
+        public async Task<IActionResult> CambiarEstado(string Documento)
+        {
+            if (Documento != null)
+            {
+                try
+                {
+                    var cliente = await _clienteServicios.GetClienteDocumento(Documento);
+                    if (cliente != null)
+                    {
+                        cliente.Estado = !cliente.Estado;
+
+                        _clienteServicios.ActualizarCliente(cliente);
+
+                        var guardar = await _clienteServicios.GuardarCambios();
+                        if (guardar)
+                            return Json(new { isValid = true });
+
+                    }
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+
+                }
+                catch (Exception)
+                {
+
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+
+            }
+            return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+        }
+
+
     }
 }
+    
