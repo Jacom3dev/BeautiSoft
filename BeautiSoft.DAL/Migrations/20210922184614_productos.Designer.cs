@@ -4,14 +4,16 @@ using BeautiSoft.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeautiSoft.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210922184614_productos")]
+    partial class productos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,31 +76,6 @@ namespace BeautiSoft.DAL.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("BeautiSoft.Models.Entidades.Compra", b =>
-                {
-                    b.Property<Guid>("CompraID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Cantidad")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("Precio")
-                        .HasColumnType("float");
-
-                    b.Property<Guid>("ProductoID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CompraID");
-
-                    b.HasIndex("ProductoID");
-
-                    b.ToTable("Compra");
-                });
-
             modelBuilder.Entity("BeautiSoft.Models.Entidades.DetalleCita", b =>
                 {
                     b.Property<Guid>("DetalleCitaID")
@@ -158,7 +135,12 @@ namespace BeautiSoft.DAL.Migrations
                     b.Property<double>("Precio")
                         .HasColumnType("float");
 
+                    b.Property<Guid?>("ProductoID1")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("ProductoID");
+
+                    b.HasIndex("ProductoID1");
 
                     b.ToTable("Productos");
                 });
@@ -215,17 +197,6 @@ namespace BeautiSoft.DAL.Migrations
                     b.Navigation("TipoDocument");
                 });
 
-            modelBuilder.Entity("BeautiSoft.Models.Entidades.Compra", b =>
-                {
-                    b.HasOne("BeautiSoft.Models.Entidades.Producto", "Producto")
-                        .WithMany("Compras")
-                        .HasForeignKey("ProductoID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Producto");
-                });
-
             modelBuilder.Entity("BeautiSoft.Models.Entidades.DetalleCita", b =>
                 {
                     b.HasOne("BeautiSoft.Models.Entidades.Cita", null)
@@ -241,6 +212,13 @@ namespace BeautiSoft.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BeautiSoft.Models.Entidades.Producto", b =>
+                {
+                    b.HasOne("BeautiSoft.Models.Entidades.Producto", null)
+                        .WithMany("Productos")
+                        .HasForeignKey("ProductoID1");
+                });
+
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Cita", b =>
                 {
                     b.Navigation("DetalleCitas");
@@ -253,7 +231,7 @@ namespace BeautiSoft.DAL.Migrations
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Producto", b =>
                 {
-                    b.Navigation("Compras");
+                    b.Navigation("Productos");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Servicio", b =>

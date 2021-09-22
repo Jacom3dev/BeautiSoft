@@ -34,6 +34,7 @@ namespace BeautiSoft.WEB
             option.UseSqlServer(conexion)
         );
             services.AddScoped<IClienteServicios, ClienteServicios>();
+            services.AddScoped<IProductoServicios, ProductoServicios>();
 
         }
 

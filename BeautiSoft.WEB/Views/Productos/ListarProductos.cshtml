@@ -1,10 +1,10 @@
-﻿<div class="row">
+﻿@model IEnumerable<BeautiSoft.Models.Entidades.Producto>
+<div class="row">
     <div class="col mt-3">
         <a onclick="mostrarModal('@Url.Action("CrearProducto","Productos",null,Context.Request.Scheme)','Registrar Producto')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Registrar Producto</a>
-        <table class="table table-bordered table-striped table-hover" id="tabla">
+        <table class="table table-bordered" id="tabla">
             <thead>
                 <tr>
-                    <th>#</th>
                     <th>Producto</th>
                     <th>Cantidad</th>
                     <th>Precio</th>
@@ -14,66 +14,46 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach (var producto in Model)
+                {
                 <tr>
-                    <td>aaa5656</td>
-                    <td>Keratina</td>
-                    <td>50</td>
-                    <td>80.000</td>
-                    <td>Activo</td>
-                    <td>Imagen Producto</td>
+                    <td>@producto.Nombre</td>
+                    <td>@producto.Cantidad</td>
+                    <td>@producto.Precio</td>
                     <td>
+                        @if (producto.Estado)
+                        {
+                            <span class="badge badge-warning">Activo</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">deshabilitado</span>
+                        }
+                    </td>
+                    <td class="p-0"><img style="width:100%;height:80px;padding:0" src="~/Productos/@producto.Imagen"/>
+                    </td>
+                    <td>
+
                         <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
+                            <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarProducto","Productos",new {ProductoID=producto.ProductoID},Context.Request.Scheme)','Editar Producto')"><i title="Editar" class="far fa-edit"></i></a>
+                        
+                            @if (producto.Estado)
+                            {
+                                <a class="text-danger" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Clientes",new {ProductoID=producto.ProductoID },Context.Request.Scheme)')"><i title="Deshabilitar cliente" class="fas fa-store-alt-slash"></i></a>
+
+                            }
+                            else
+                            {
+                                <a class="text-warning" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Clientes",new{ProductoID=producto.ProductoID},Context.Request.Scheme)')"><i title="Habilitar cliente" class="fas fa-user-check"></i></a>
+
+                            }
+                            <a class="text-success" href="javascript:mostrarModal2('@Url.Action("DetalleCliente","Clientes",new{ProductoID=producto.ProductoID},Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del cliente" class="fas fa-book"></i></a>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <td>aaa5656</td>
-                    <td>Keratina</td>
-                    <td>50</td>
-                    <td>80.000</td>
-                    <td>Activo</td>
-                    <td>Imagen Producto</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>aaa5656</td>
-                    <td>Keratina</td>
-                    <td>50</td>
-                    <td>80.000</td>
-                    <td>Activo</td>
-                    <td>Imagen Producto</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>aaa5656</td>
-                    <td>Keratina</td>
-                    <td>50</td>
-                    <td>80.000</td>
-                    <td>Activo</td>
-                    <td>Imagen Producto</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
-                        </div>
-                    </td>
-                </tr>
+                }
+
+
             </tbody>
         </table>
 

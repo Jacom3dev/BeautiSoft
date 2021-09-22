@@ -18,7 +18,7 @@ namespace BeautiSoft.DAL
         public DbSet<TipoDocumento> TiposDocumento { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
        
-        //public DbSet<Producto> Productos { get; set; }
+        public DbSet<Producto> Productos { get; set; }
         //public DbSet<Compra> Compras { get; set; }
         public DbSet<Servicio> Servicios{ get; set; }
         public DbSet<Cita> Citas { get; set; }

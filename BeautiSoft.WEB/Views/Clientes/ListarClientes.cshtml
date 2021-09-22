@@ -38,8 +38,8 @@
                             </td>
                             <td>
                                 
-                             <div class="d-flex justify-content-between">
-                                <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarCliente","Clientes",new {Documento=cliente.Documento},Context.Request.Scheme)','Editar cliente')"><i title="Editar" class="fas fa-edit"></i></a>
+                            <div class="d-flex justify-content-between">
+                                <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarCliente","Clientes",new {Documento=cliente.Documento},Context.Request.Scheme)','Editar cliente')"><i title="Editar" class="fas fa-user-edit"></i></a>
 
                                 @if (cliente.Estado)
                                 {
@@ -51,8 +51,7 @@
                                     <a class="text-warning" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Clientes",new{Documento=cliente.Documento},Context.Request.Scheme)')"><i title="Habilitar cliente" class="fas fa-user-check"></i></a>
 
                                 }
-
-                                <a class="text-success" href="javascript:mostrarModal2('@Url.Action("DetalleCliente","Clientes",new{Documento=cliente.Documento},Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del cliente" class="fas fa-search"></i></a>
+                                <a class="text-success" href="javascript:mostrarModal2('@Url.Action("DetalleCliente","Clientes",new{Documento=cliente.Documento},Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del cliente" class="fas fa-book"></i></a>
                             </div>
                             </td>
                         </tr>
