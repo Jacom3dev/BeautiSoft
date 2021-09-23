@@ -1,16 +1,22 @@
-﻿@{ 
+﻿@model BeautiSoft.Models.Entidades.Servicio
+
+@{
     Layout = null;
 }
-<form method="post" class="bg-white rounded col-12">
+<form method="post" asp-action="CrearServicio" class="bg-white rounded col-12" onsubmit="return jQueryAjaxPost(this, 'Crear Servicio', '¿Desea crear el Servicio?')" autocomplete="off">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group row">
         <div class="col">
-            <input type="text" class="form-control" id="" name="" placeholder="Nombre Servicio">
+            <input asp-for="Nombre" class="form-control" placeholder="Nombre Servicio">
+            <span asp-validation-for="Nombre" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">
         <div class="col">
-            <textarea class="form-control" placeholder="Detalle Servicio" rows="3" id=""></textarea>
+            <textarea asp-for=Detalle class="form-control" placeholder="Detalle Servicio" rows="3" ></textarea>
+            <span asp-validation-for="Detalle" class="text-danger"></span>
         </div>
     </div>
     <input type="submit" class="btn btn-info btn-block" name="name" value="Registrar Servicio" />
 </form>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

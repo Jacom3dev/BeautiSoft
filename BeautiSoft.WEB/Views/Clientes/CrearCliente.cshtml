@@ -21,7 +21,7 @@
         </div>
         <div class="col">
             <select asp-items="@ViewBag.TiposDocumento" asp-for="TipoDocumentoId" class="form-control">
-                <option>Seleccione</option>
+                <option disabled selected>Seleccione</option>
             </select>
             <span asp-validation-for="TipoDocumentoId" class="text-danger"></span>
         </div>

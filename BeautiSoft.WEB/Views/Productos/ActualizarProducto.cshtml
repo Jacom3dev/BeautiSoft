@@ -2,8 +2,10 @@
 @{
     Layout = null;
 }
-<form method="get" asp-action="CrearProducto" class="bg-white rounded " onsubmit="return jQueryAjaxPost(this, 'Crear Producto', '¿Desea crear el Producto?')">
+<form method="post" asp-action="ActualizarProducto" class="bg-white rounded " onsubmit="return jQueryAjaxPost(this, 'Crear Producto', '¿Deseas Actualizar el Producto?')">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProductoID" />
+    <input type="hidden" asp-for="Estado" />
     <div class="form-group row">
         <div class="col">
             <input asp-for="Nombre" class="form-control" placeholder="Nombre Producto">
@@ -27,6 +29,11 @@
         </div>
 
     </div>
-    <input type="submit" class="btn btn-info" name="name" value="Registrar Producto" />
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <img style="width:200px;height:200px;padding:0" src="~/Productos/@Model.Imagen" />
+        </div>
+    </div>
+    <input type="submit" class="btn btn-info" value="Editar Producto" />
 </form>
 @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

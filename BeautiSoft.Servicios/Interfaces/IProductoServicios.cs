@@ -11,11 +11,9 @@ namespace BeautiSoft.Servicios.Interfaces
     {
         void Crear(Producto producto);
         Task<IEnumerable<Producto>> ListarProductos();
+        void ActualizarProducto(Producto producto);
         Task<Producto> GetProductoID(Guid ProductoID);
-        Task<bool> GuardarCambios();
-        
-
+        Task<bool> GuardarCambios(); 
     }
-
 
 }

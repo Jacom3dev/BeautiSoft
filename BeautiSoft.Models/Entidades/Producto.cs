@@ -20,6 +20,6 @@ namespace BeautiSoft.Models.Entidades
         public string Imagen { get; set; }
         public bool Estado { get; set; }
         public virtual List<Compra> Compras { get; set; }
-
+        public virtual List<Venta> Ventas { get; set; }
     }
 }

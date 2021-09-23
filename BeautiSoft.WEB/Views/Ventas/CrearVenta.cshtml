@@ -1,15 +1,20 @@
-﻿@{ 
-    Layout = null;
-}
+﻿@model BeautiSoft.Models.Entidades.Venta
+@{ Layout = null; }
 <form method="post" class="bg-white rounded col-12">
     <div class="form-group row">
         <div class="col">
-            <input type="text" class="form-control" id="" name="" placeholder="Documento del cliente">
+            <select asp-items="@ViewBag.Documentos" asp-for="Documento" class="form-control">
+                <option disabled selected>Documento del cliente</option>
+            </select>
+            <span asp-validation-for="Documento" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">
         <div class="col">
-            <input type="text" class="form-control" id="" name="" placeholder="Nombre Producto">
+            <select asp-items="@ViewBag.Productos" asp-for="ProductoID" class="form-control">
+                <option disabled selected>Nombre del Producto</option>
+            </select>
+            <span asp-validation-for="Producto" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">

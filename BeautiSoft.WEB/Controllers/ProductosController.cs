@@ -1,5 +1,6 @@
 ﻿using BeautiSoft.Models.Entidades;
 using BeautiSoft.Servicios.Interfaces;
+using BeautiSoft.WEB.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -72,6 +73,81 @@ namespace BeautiSoft.WEB.Controllers
             }
             catch (Exception)
             {
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> ActualizarProducto(Guid ProductoID, Producto producto)
+        {
+            if (ProductoID != producto.ProductoID)
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                     producto.Imagen = "shampo.png";
+                    _productoServicios.ActualizarProducto(producto);
+                    var editar = await _productoServicios.GuardarCambios();
+                    if (editar)
+                        return Json(new { isValid = true, operacion = "editar" });
+                    else
+                        return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+                catch (Exception)
+                {
+
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+            }
+            
+            return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos", html = Helper.RenderRazorViewToString(this, "Editar", producto) });
+        }
+
+        [NoDirectAccessAttribute]
+        public async Task<IActionResult> DetalleProducto(Guid ProductoID)
+        {
+            try
+            {
+                var producto = await _productoServicios.GetProductoID(ProductoID);
+                if (producto != null)
+                {
+                    return View(producto);
+
+                }
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+
+            }
+            catch (Exception)
+            {
+
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+            }
+         
+        }
+
+        [NoDirectAccessAttribute]
+        public async Task<IActionResult> CambiarEstado(Guid ProductoID)
+        {
+            try
+            {
+                var producto = await _productoServicios.GetProductoID(ProductoID);
+                if (producto != null)
+                {
+                    producto.Estado = !producto.Estado;
+
+                    _productoServicios.ActualizarProducto(producto);
+
+                    var guardar = await _productoServicios.GuardarCambios();
+                    if (guardar)
+                        return Json(new { isValid = true });
+
+                }
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+
+            }
+            catch (Exception)
+            {
+
                 return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
             }
         }

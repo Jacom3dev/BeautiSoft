@@ -38,7 +38,6 @@
             url: url,
             success: function (res) {
                 if (res.isValid == false) {
-                    alert("falso");
                     alertify.set('notifier', 'position', 'top-right');
                     if (res.tipoError == "error")
                         alertify.error(res.mensaje);
@@ -62,7 +61,6 @@
             url: url,
             success: function (res) {
                 if (res.isValid == false) {
-                    alert("falso");
                     alertify.set('notifier', 'position', 'top-right');
                     if (res.tipoError == "error")
                         alertify.error(res.mensaje);

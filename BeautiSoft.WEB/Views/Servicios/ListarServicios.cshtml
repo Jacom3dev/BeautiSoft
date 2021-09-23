@@ -1,11 +1,10 @@
-﻿@*@model List<BeautiSoft.Models.Servicio>*@
-<div class="row">
+﻿<div class="row">
     <div class="col mt-3">
         <a onclick="mostrarModal('@Url.Action("CrearServicio","Servicios",null,Context.Request.Scheme)','Registrar Servicio')" class="btn bg-site mb-3" style="color:white"> <i class="fas fa-balance-scale  mr-2"></i>Registrar servicio </a>
+
         <table class="table table-bordered table-striped table-hover" id="tabla">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">#</th>
                     <th scope="col">Servicio</th>
                     <th scope="col">Detalle</th>
                     <th scope="col">Estado</th>
@@ -13,36 +12,45 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>5656</td>
-                    <td>motilada</td>
-                    <td>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</td>
-                    <td>Activo</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-bell-slash mr-2 text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
-                        </div>
-                    </td>
-                </tr>
-                @* @foreach(var Agenda in Model)
+                @foreach (var servicio in Model)
                 {
-                  <tr>
-                      <td scope="row" class="text-center">@Agenda.Id</td>
-                      <td>@Agenda.NombreCliente</td>
-                      <td class="text-center">@Agenda.Servicio</td>
-                       <td>@Agenda.Direccion</td>
-                      <td class="text-center">@Agenda.Fecha</td>
-                      <td>
-                           <div class="d-flex justify-content-between">
-                               <i title="Editar" class="far fa-edit text-warning"></i>
-                               <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                               <i title="Detalle" class="fas fa-book text-success"></i>
-                           </div>
-                       </td>
-                  </tr>
-                }*@
+                    <tr>
+
+                        <td>@servicio.Nombre</td>
+                        <td>@servicio.Detalle</td>
+                        <td>
+                            @if (servicio.Estado)
+                            {
+                                <span class="badge badge-warning">Activo</span> 
+
+                             }
+                            else
+                            {
+                                <span class="badge badge-danger">deshabilitado</span>
+                            }
+                        </td>
+
+                        <td>
+
+                            <div class="d-flex justify-content-between">
+                                <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarServicio","Servicios",new {ServicioID=servicio.ServicioID},Context.Request.Scheme)','Editar servicio')"><i title="Editar" class="far fa-edit"></i></a>
+
+                                @if (servicio.Estado)
+                                {
+                                    <a class="text-danger btn btn-outline-danger" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Servicios",new {ServicioID=servicio.ServicioID},Context.Request.Scheme)')">Deshabilitar</a>
+
+                                }
+                                else
+                                {
+                                    <a class="text-secondary btn btn-outline-warning" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Servicios",new {ServicioID=servicio.ServicioID},Context.Request.Scheme)')">Activar</a>
+
+                                }
+                                <a class="text-success" href="javascript:mostrarModal2('@Url.Action("DetalleServicio","Servicios",new{ServicioID=servicio.ServicioID},Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del servicio" class="fas fa-book"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                 }
+
             </tbody>
         </table>
 

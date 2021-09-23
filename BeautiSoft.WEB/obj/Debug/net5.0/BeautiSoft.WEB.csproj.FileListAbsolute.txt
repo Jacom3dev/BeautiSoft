@@ -402,8 +402,6 @@ C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Compras\CrearCompra.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Informes\Informe.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
-C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\ServiciosRealizados\CrearServicioRealizado.cshtml.g.cs
-C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\ServiciosRealizados\ListarServiciosRealizados.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Servicios\CrearServicio.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Servicios\ListarServicios.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\bin\Debug\net5.0\BeautiSoft.Servicios.dll
@@ -411,3 +409,6 @@ C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\bin\Debug\
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Clientes\ActualizarCliente.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Clientes\DetalleCliente.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Productos\ActualizarProducto.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Productos\DetalleProducto.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Servicios\ActualizarServicio.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Servicios\DetalleServicio.cshtml.g.cs

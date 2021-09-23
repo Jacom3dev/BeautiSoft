@@ -11,7 +11,9 @@ namespace BeautiSoft.Models.Entidades
     {
         [Key]
         public Guid ServicioID { get; set; }
+        [Required(ErrorMessage = "El Nombre del Servicio es requerido")]
         public string Nombre { get; set; }
+        [Required(ErrorMessage = "El detalle es requerido")]
         public string Detalle { get; set; }
         public bool Estado { get; set; }
         public virtual List<DetalleCita> DetalleCitas { get; set; }

@@ -39,6 +39,13 @@ namespace BeautiSoft.Servicios.Servicios
             return await _context.Productos.FirstOrDefaultAsync(x => x.ProductoID == ProductoID);
         }
 
+        public void ActualizarProducto(Producto producto)
+        {
+            if (producto == null)
+                throw new ArgumentNullException(nameof(producto));
+            _context.Update(producto);
+        }
+
         public async Task<bool> GuardarCambios()
         {
             return await _context.SaveChangesAsync() > 0;

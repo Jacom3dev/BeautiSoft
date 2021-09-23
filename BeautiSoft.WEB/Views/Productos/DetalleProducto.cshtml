@@ -1,0 +1,41 @@
+﻿@model BeautiSoft.Models.Entidades.Producto
+
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" id="tabla">
+            <thead>
+                <tr class="text-center">
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Estado</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Nombre</td>
+                    <td>@Model.Cantidad</td>
+                    <td>@Model.Precio</td>
+                    @if (@Model.Estado)
+                    {
+                        <td>Activo</td>
+                    }
+                    else
+                    {
+                        <td>deshabilitado</td>
+                    }
+                    <td class="p-0"><img style="width:100%;height:80px;padding:0" src="~/Productos/@Model.Imagen" />
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tabla.js"></script>
+}

@@ -1,0 +1,27 @@
+﻿@model BeautiSoft.Models.Entidades.Servicio
+@{ 
+    Layout = null; 
+}
+<form method="post" asp-action="ActualizarServicio" class="bg-white rounded " onsubmit="return jQueryAjaxPost(this, 'Actualizar Servicio', '¿Desea Actualizar Servicio?')">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ServicioID" />
+    <input type="hidden" asp-for="Estado" />
+    <div class="form-group row">
+        <div class="col">
+            <input asp-for="Nombre" class="form-control" placeholder="Nombre Producto">
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row justify-content-between">
+
+        <div class="col">
+            <textarea asp-for="Detalle" class="form-control" placeholder="Crear Servicio" rows="3"></textarea>
+            <span asp-validation-for="Detalle" class="text-danger"></span>
+        </div>
+
+
+    </div>
+    <input type="submit" class="btn btn-info" name="name" value="Actulizar Servicio" />
+</form>
+
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
