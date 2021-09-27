@@ -51,7 +51,7 @@ namespace BeautiSoft.Servicios.Servicios
             if (Documento == null)
                 throw new ArgumentNullException(nameof(Documento));
 
-            return await _context.Clientes.FirstOrDefaultAsync(x => x.Documento == Documento);
+            return await _context.Clientes.Include(x => x.TipoDocument).FirstOrDefaultAsync(x => x.Documento == Documento);
         }
         // Guardar cambios
         public async Task<bool> GuardarCambios()

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace BeautiSoft.Servicios.Interfaces
 {
-    public interface IVentaServicios
+    public interface ICompraServicios
     {
-        Task<IEnumerable<Cliente>> Documentos();
-        Task<IEnumerable<Producto>> Productos();
-        Task<IEnumerable<Venta>> ListarVentas();
-        void Crear(Venta venta);
+        Task<IEnumerable<Compra>> ComprasTolist();
+        Task<IEnumerable<Producto>> GetProductos();
+        void Crear(Compra compra);
         Task<bool> GuardarCambios();
+        Task<Producto> GetProductoId(Guid productoId);
     }
 }

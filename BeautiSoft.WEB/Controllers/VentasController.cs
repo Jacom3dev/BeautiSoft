@@ -1,4 +1,5 @@
-﻿using BeautiSoft.Servicios.Interfaces;
+﻿using BeautiSoft.Models.Entidades;
+using BeautiSoft.Servicios.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -17,10 +18,10 @@ namespace BeautiSoft.WEB.Controllers
         {
             _ventaServicios = ventaServicios;
         }
-        public IActionResult ListarVentas()
+        public async Task<IActionResult> ListarVentas()
         {
             @ViewData["Title"] = "Ventas";
-            return View();
+            return View(await _ventaServicios.ListarVentas());
         }
        
         [NoDirectAccessAttribute]
@@ -32,6 +33,33 @@ namespace BeautiSoft.WEB.Controllers
             ViewBag.Documentos = new SelectList(await _ventaServicios.Documentos(), "Documento", "Documento");
             ViewBag.Productos = new SelectList(await _ventaServicios.Productos(), "ProductoID", "Nombre");
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> CrearVenta(Venta venta)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _ventaServicios.Crear(venta);
+                    var guardar = await _ventaServicios.GuardarCambios();
+                    if (guardar)
+                    {
+                        return Json(new { isValid = true, operacion = "crear" });
+                    }
+                }
+                catch (Exception)
+                {
+
+                    return Json(new { isValid = false, tipoError = "error", error = "Error al crear el registro" });
+
+                }
+
+            }
+
+            ViewBag.Documentos = new SelectList(await _ventaServicios.Documentos(), "Documento", "Documento");
+            ViewBag.Productos = new SelectList(await _ventaServicios.Productos(), "ProductoID", "Nombre");
+            return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos" });
         }
 
 

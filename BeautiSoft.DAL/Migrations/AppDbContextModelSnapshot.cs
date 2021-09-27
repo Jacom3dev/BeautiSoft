@@ -96,7 +96,7 @@ namespace BeautiSoft.DAL.Migrations
 
                     b.HasIndex("ProductoID");
 
-                    b.ToTable("Compra");
+                    b.ToTable("Compras");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.DetalleCita", b =>
@@ -170,12 +170,14 @@ namespace BeautiSoft.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Detalle")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ServicioID");
@@ -209,10 +211,6 @@ namespace BeautiSoft.DAL.Migrations
                     b.Property<string>("ClienteDocumento")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Documento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double>("Precio")
                         .HasColumnType("float");
 
@@ -225,7 +223,7 @@ namespace BeautiSoft.DAL.Migrations
 
                     b.HasIndex("ProductoID");
 
-                    b.ToTable("Venta");
+                    b.ToTable("Ventas");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Cita", b =>

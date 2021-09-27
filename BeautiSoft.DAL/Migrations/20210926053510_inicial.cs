@@ -21,12 +21,28 @@ namespace BeautiSoft.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Productos",
+                columns: table => new
+                {
+                    ProductoID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Precio = table.Column<double>(type: "float", nullable: false),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
+                    Imagen = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Estado = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Productos", x => x.ProductoID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Servicios",
                 columns: table => new
                 {
                     ServicioID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Detalle = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Detalle = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Estado = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -44,6 +60,27 @@ namespace BeautiSoft.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TiposDocumento", x => x.TipoDocumentoId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Compras",
+                columns: table => new
+                {
+                    CompraID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Precio = table.Column<double>(type: "float", nullable: false),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
+                    Fecha = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ProductoID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Compras", x => x.CompraID);
+                    table.ForeignKey(
+                        name: "FK_Compras_Productos_ProductoID",
+                        column: x => x.ProductoID,
+                        principalTable: "Productos",
+                        principalColumn: "ProductoID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -90,6 +127,33 @@ namespace BeautiSoft.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Ventas",
+                columns: table => new
+                {
+                    VentaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ProductoID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ClienteDocumento = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    Cantidad = table.Column<int>(type: "int", nullable: false),
+                    Precio = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ventas", x => x.VentaId);
+                    table.ForeignKey(
+                        name: "FK_Ventas_Clientes_ClienteDocumento",
+                        column: x => x.ClienteDocumento,
+                        principalTable: "Clientes",
+                        principalColumn: "Documento",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Ventas_Productos_ProductoID",
+                        column: x => x.ProductoID,
+                        principalTable: "Productos",
+                        principalColumn: "ProductoID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DetalleCitas",
                 columns: table => new
                 {
@@ -125,6 +189,11 @@ namespace BeautiSoft.DAL.Migrations
                 column: "TipoDocumentoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Compras_ProductoID",
+                table: "Compras",
+                column: "ProductoID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DetalleCitas_CitaID",
                 table: "DetalleCitas",
                 column: "CitaID");
@@ -133,10 +202,23 @@ namespace BeautiSoft.DAL.Migrations
                 name: "IX_DetalleCitas_ServicioID",
                 table: "DetalleCitas",
                 column: "ServicioID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ventas_ClienteDocumento",
+                table: "Ventas",
+                column: "ClienteDocumento");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Ventas_ProductoID",
+                table: "Ventas",
+                column: "ProductoID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Compras");
+
             migrationBuilder.DropTable(
                 name: "DetalleCitas");
 
@@ -144,10 +226,16 @@ namespace BeautiSoft.DAL.Migrations
                 name: "Login");
 
             migrationBuilder.DropTable(
+                name: "Ventas");
+
+            migrationBuilder.DropTable(
                 name: "Citas");
 
             migrationBuilder.DropTable(
                 name: "Servicios");
+
+            migrationBuilder.DropTable(
+                name: "Productos");
 
             migrationBuilder.DropTable(
                 name: "Clientes");

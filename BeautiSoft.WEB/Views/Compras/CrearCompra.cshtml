@@ -1,19 +1,25 @@
-﻿@{ 
-    Layout = null;
-}
-<form method="post" class="bg-white rounded">
+﻿@model BeautiSoft.Models.Entidades.Compra
+@{ Layout = null; }
+<form method="post" asp-action="CrearCompra" class="bg-white rounded" onsubmit="return jQueryAjaxPost(this, 'Crear Compra', '¿Desea crear la compra?')">
     <div class="form-group row">
         <div class="col">
-            <input type="text" class="form-control" id="" name="" placeholder="Nombre Producto">
+            <select asp-items="@ViewBag.Productos" asp-for="ProductoID" class="form-control">
+                <option disabled selected>Nombre del producto</option>
+            </select>
+            <span asp-validation-for="ProductoID" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">
         <div class="col-6">
-            <input type="number" class="form-control" id="" name="" placeholder="Precio">
+            <input type="number" class="form-control" asp-for="Precio" placeholder="Precio">
+            <span asp-validation-for="Precio" class="text-danger"></span>
         </div>
         <div class="col-6">
-            <input type="number" class="form-control" id="" name="" placeholder="Cantidad">
+            <input type="number" asp-for="Cantidad" class="form-control" placeholder="Cantidad">
+            <span asp-validation-for="Cantidad" class="text-danger"></span>
         </div>
     </div>
     <input type="submit" class="btn btn-info" name="name" value="Registrar Compra" />
 </form>
+
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

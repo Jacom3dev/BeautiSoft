@@ -37,6 +37,7 @@ namespace BeautiSoft.WEB
             services.AddScoped<IProductoServicios, ProductoServicios>();
             services.AddScoped<IVentaServicios, VentaServicios>();
             services.AddScoped<IServicioServicios, ServicioServicios>();
+            services.AddScoped<ICompraServicios, CompraServicios>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

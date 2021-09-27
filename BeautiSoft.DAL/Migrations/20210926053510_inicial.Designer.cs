@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeautiSoft.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210922185400_updateProductos")]
-    partial class updateProductos
+    [Migration("20210926053510_inicial")]
+    partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,7 +98,7 @@ namespace BeautiSoft.DAL.Migrations
 
                     b.HasIndex("ProductoID");
 
-                    b.ToTable("Compra");
+                    b.ToTable("Compras");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.DetalleCita", b =>
@@ -172,12 +172,14 @@ namespace BeautiSoft.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Detalle")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ServicioID");
@@ -197,6 +199,33 @@ namespace BeautiSoft.DAL.Migrations
                     b.HasKey("TipoDocumentoId");
 
                     b.ToTable("TiposDocumento");
+                });
+
+            modelBuilder.Entity("BeautiSoft.Models.Entidades.Venta", b =>
+                {
+                    b.Property<Guid>("VentaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClienteDocumento")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("Precio")
+                        .HasColumnType("float");
+
+                    b.Property<Guid>("ProductoID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("VentaId");
+
+                    b.HasIndex("ClienteDocumento");
+
+                    b.HasIndex("ProductoID");
+
+                    b.ToTable("Ventas");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Cita", b =>
@@ -243,6 +272,23 @@ namespace BeautiSoft.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BeautiSoft.Models.Entidades.Venta", b =>
+                {
+                    b.HasOne("BeautiSoft.Models.Entidades.Cliente", "Cliente")
+                        .WithMany("Ventas")
+                        .HasForeignKey("ClienteDocumento");
+
+                    b.HasOne("BeautiSoft.Models.Entidades.Producto", "Producto")
+                        .WithMany("Ventas")
+                        .HasForeignKey("ProductoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Producto");
+                });
+
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Cita", b =>
                 {
                     b.Navigation("DetalleCitas");
@@ -251,11 +297,15 @@ namespace BeautiSoft.DAL.Migrations
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Cliente", b =>
                 {
                     b.Navigation("Citas");
+
+                    b.Navigation("Ventas");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Producto", b =>
                 {
                     b.Navigation("Compras");
+
+                    b.Navigation("Ventas");
                 });
 
             modelBuilder.Entity("BeautiSoft.Models.Entidades.Servicio", b =>

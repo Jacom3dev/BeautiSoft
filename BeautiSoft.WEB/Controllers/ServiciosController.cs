@@ -75,8 +75,7 @@ namespace BeautiSoft.WEB.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> ActualizarServicio(Guid ServicioID, Servicio servicio)
-        
+        public async Task<IActionResult> ActualizarServicio(Guid ServicioID, Servicio servicio)   
         {
             if (ServicioID != servicio.ServicioID)
                 return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
