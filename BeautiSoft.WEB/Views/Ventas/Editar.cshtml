@@ -1,0 +1,32 @@
+﻿@model BeautiSoft.Models.Entidades.Venta
+@{ Layout = null; }
+<form method="post" asp-action="Editar" class="bg-white rounded col-12" onsubmit="return jQueryAjaxPost(this, 'Editar Venta', '¿Desea Editar la venta?')" autocomplete="off">
+    <div class="form-group row">
+        <input type="hidden" asp-for="VentaId" />
+        <div class="col">
+            <select asp-items="@ViewBag.Documentos" asp-for="ClienteDocumento" class="form-control">
+                <option disabled selected>---cliente----</option>
+            </select>
+            <span asp-validation-for="Cliente" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <select asp-items="@ViewBag.Productos" asp-for="ProductoID" class="form-control">
+                <option disabled selected>Nombre del Producto</option>
+            </select>
+            <span asp-validation-for="Producto" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <input type="number" class="form-control" asp-for="Cantidad" placeholder="Cantidad Vendida">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control" asp-for="Precio" placeholder="Precio a Pagar">
+        </div>
+    </div>
+    <input type="submit" class="btn btn-info" name="name" value="Editar Venta" />
+</form>
+
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

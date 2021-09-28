@@ -37,6 +37,18 @@ namespace BeautiSoft.Servicios.Servicios
             venta.VentaId = Guid.NewGuid();
             _context.Add(venta);
         }
+        public void Editar(Venta venta)
+        {
+            if (venta == null)
+                throw new ArgumentNullException(nameof(venta));
+            _context.Update(venta);
+        }
+
+      
+        public async Task<Venta> GetVentaId(Guid VentaID)
+        {
+            return await _context.Ventas.Include(x=>x.Cliente).Include(x=>x.Producto).FirstOrDefaultAsync(x => x.VentaId == VentaID);
+        }
         public async Task<bool> GuardarCambios()
         {
             return await _context.SaveChangesAsync() > 0;

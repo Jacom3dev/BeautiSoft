@@ -1,4 +1,4 @@
-﻿@model List<BeautiSoft.Models.Entidades.Compra> 
+﻿@model IEnumerable<BeautiSoft.Models.Entidades.Compra> 
 <div class="row">
     <div class="col mt-3">
         <a onclick="mostrarModal('@Url.Action("CrearCompra","Compras",null,Context.Request.Scheme)','Registrar Compra')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Registrar Compra</a>
@@ -23,9 +23,8 @@
                     <td class="text-center">@Compra.Fecha</td>
                     <td>
                         <div class="d-flex justify-content-between">
-                            <i title="Editar" class="far fa-edit text-warning"></i>
-                            <i title="Deshabilitar" class="fas fa-user-slash text-danger"></i>
-                            <i title="Detalle" class="fas fa-book text-success"></i>
+                            <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarCompra","Compras",new {CompraID=Compra.CompraID},Context.Request.Scheme)','Editar Compra')"><i title="Editar" class="fas fa-user-edit"></i></a>
+                            <a class="text-success" href="javascript:mostrarModal2('@Url.Action("DetalleCompra","Compras",new{CompraID=Compra.CompraID},Context.Request.Scheme)','Detalle de la Compra')"><i title="Detalle de la  Compra" class="fas fa-book"></i></a>
                         </div>
                     </td>
                 </tr>

@@ -13,6 +13,8 @@ namespace BeautiSoft.Servicios.Interfaces
         Task<IEnumerable<Producto>> Productos();
         Task<IEnumerable<Venta>> ListarVentas();
         void Crear(Venta venta);
+        Task<Venta> GetVentaId(Guid VentaID);
+        void Editar(Venta venta);
         Task<bool> GuardarCambios();
     }
 }

@@ -1,4 +1,5 @@
-﻿<div class="row">
+﻿@model IEnumerable<BeautiSoft.Models.Entidades.Servicio>
+<div class="row">
     <div class="col mt-3">
         <a onclick="mostrarModal('@Url.Action("CrearServicio","Servicios",null,Context.Request.Scheme)','Registrar Servicio')" class="btn bg-site mb-3" style="color:white"> <i class="fas fa-balance-scale  mr-2"></i>Registrar servicio </a>
 
@@ -21,9 +22,9 @@
                         <td>
                             @if (servicio.Estado)
                             {
-                                <span class="badge badge-warning">Activo</span> 
+                                <span class="badge badge-warning">Activo</span>
 
-                             }
+                            }
                             else
                             {
                                 <span class="badge badge-danger">deshabilitado</span>
@@ -49,7 +50,7 @@
                             </div>
                         </td>
                     </tr>
-                 }
+                }
 
             </tbody>
         </table>

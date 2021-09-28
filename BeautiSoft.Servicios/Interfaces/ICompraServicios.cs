@@ -12,7 +12,8 @@ namespace BeautiSoft.Servicios.Interfaces
         Task<IEnumerable<Compra>> ComprasTolist();
         Task<IEnumerable<Producto>> GetProductos();
         void Crear(Compra compra);
+        public void Actualizar(Compra compra);
+        Task<Compra> GetCompraId(Guid CompraID);
         Task<bool> GuardarCambios();
-        Task<Producto> GetProductoId(Guid productoId);
     }
 }

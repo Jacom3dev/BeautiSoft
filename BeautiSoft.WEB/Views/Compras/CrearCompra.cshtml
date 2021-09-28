@@ -4,7 +4,7 @@
     <div class="form-group row">
         <div class="col">
             <select asp-items="@ViewBag.Productos" asp-for="ProductoID" class="form-control">
-                <option disabled selected>Nombre del producto</option>
+                <option disabled selected> --- producto -----</option>
             </select>
             <span asp-validation-for="ProductoID" class="text-danger"></span>
         </div>

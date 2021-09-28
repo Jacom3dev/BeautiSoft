@@ -412,3 +412,7 @@ C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Productos\DetalleProducto.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Servicios\ActualizarServicio.cshtml.g.cs
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Servicios\DetalleServicio.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Compras\ActualizarCompra.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Compras\DetalleCompra.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Ventas\Editar.cshtml.g.cs
+C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.WEB\obj\Debug\net5.0\Razor\Views\Ventas\Detalle.cshtml.g.cs

@@ -4,7 +4,6 @@
 }
 <form method="post" class="bg-white rounded col-12" asp-action="ActualizarCliente" onsubmit="return jQueryAjaxPost(this, 'Actualizar cliente', '¿Desea Actulizar el cliente?')" autocomplete="off">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="Documento" />
     <input type="hidden" asp-for="Estado" />
     <div class="form-group row">
         <div class="col">
@@ -18,7 +17,7 @@
     </div>
     <div class="form-group row">
         <div class="col">
-            <input asp-for="Documento" class="form-control" placeholder="Documento">
+            <input asp-for="Documento" class="form-control" placeholder="Documento" readonly>
             <span asp-validation-for="Documento" class="text-danger"></span>
         </div>
         <div class="col">

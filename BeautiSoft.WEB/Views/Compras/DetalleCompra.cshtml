@@ -1,0 +1,31 @@
+﻿@model BeautiSoft.Models.Entidades.Compra
+
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" id="tabla">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col"> Producto</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Producto.Nombre</td>
+                    <td>@Model.Cantidad</td>
+                    <td>@Model.Precio</td>
+                    <td>@Model.Fecha</td>                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tabla.js"></script>
+}

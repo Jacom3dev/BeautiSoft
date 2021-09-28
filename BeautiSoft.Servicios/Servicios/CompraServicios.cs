@@ -1,5 +1,4 @@
-﻿
-using BeautiSoft.DAL;
+﻿using BeautiSoft.DAL;
 using BeautiSoft.Models.Entidades;
 using BeautiSoft.Servicios.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -29,9 +28,9 @@ namespace BeautiSoft.Servicios.Servicios
         {
             return await _context.Productos.Where(x => x.Estado == true).ToListAsync();
         }
-        public async Task<Producto> GetProductoId(Guid productoId)
+        public async Task<Compra> GetCompraId(Guid CompraID)
         {
-            return await _context.Productos.FirstOrDefaultAsync(x => x.ProductoID == productoId);
+            return await _context.Compras.Include(x=>x.Producto).FirstOrDefaultAsync(x=>x.CompraID == CompraID);
         }
 
         //this method create
@@ -44,10 +43,17 @@ namespace BeautiSoft.Servicios.Servicios
             compra.Fecha = DateTime.Now;
             _context.Add(compra);
         }
+        public void Actualizar(Compra compra)
+        {
+            if (compra == null)
+                throw new ArgumentNullException(nameof(compra));
+            _context.Update(compra);
+        }
         public async Task<bool> GuardarCambios()
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
     }
 
 }

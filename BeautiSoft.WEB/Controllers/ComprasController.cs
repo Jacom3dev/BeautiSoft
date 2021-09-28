@@ -61,5 +61,77 @@ namespace BeautiSoft.WEB.Controllers
             ViewBag.Productos = new SelectList(await _compraServicios.GetProductos(), "ProductoID", "Nombre");
             return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos" });
         }
+        [NoDirectAccessAttribute]
+        [HttpGet]
+        public async Task<IActionResult> ActualizarCompra(Guid CompraID)
+        {
+            try
+            {
+                var compra = await _compraServicios.GetCompraId(CompraID);
+                if (compra == null)
+                {
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "No existe registro de compra" });
+
+                }
+
+                ViewBag.Productos = new SelectList(await _compraServicios.GetProductos(), "ProductoID", "Nombre");
+                return View(compra);
+
+            }
+            catch (Exception)
+            {
+
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+            }
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ActualizarCompra(Guid CompraID, Compra compra)
+        {
+            if (CompraID != compra.CompraID)
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _compraServicios.Actualizar(compra);
+                    var Actualizar = await _compraServicios.GuardarCambios();
+                    if (Actualizar)
+                        return Json(new { isValid = true, operacion = "editar" });
+                    else
+                        return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+                catch (Exception)
+                {
+
+                    return Json(new { isValid = false, tipoError = "error", mensaje = "Error interno" });
+                }
+
+            }
+            ViewBag.Productos = new SelectList(await _compraServicios.GetProductos(), "ProductoID", "Nombre");
+            return Json(new { isValid = false, tipoError = "warning", error = "Debe diligenciar los campos requeridos"});
+        }
+
+
+        [NoDirectAccessAttribute]
+        public async Task<IActionResult> DetalleCompra(Guid CompraID)
+        {
+            try
+            {
+                var compra = await _compraServicios.GetCompraId(CompraID);
+                if (compra != null)
+                {
+                    return View(compra);
+
+                }
+                return Json(new { isValid = false, tipoError = "error", mensaje = "Error Interno" });
+            }
+            catch (Exception)
+            {
+
+                return Json(new { isValid = false, tipoError = "Error", mensaje = "Error interno" });
+            }
+        }
     }
 }

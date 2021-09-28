@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BeautiSoft.Models.Entidades.Producto>
 <div class="row">
     <div class="col mt-3">
-        <a onclick="mostrarModal('@Url.Action("CrearProducto","Productos",null,Context.Request.Scheme)','Registrar Producto')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Registrar Producto</a>
+        <a onclick="mostrarModal('@Url.Action("CrearProducto","Productos",null,Context.Request.Scheme)','Registrar Producto')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-shopping-basket mr"></i>Registrar Producto</a>
         <div class="table-responsive">
             <table class="table table-bordered" id="tabla">
                 <thead>
@@ -39,12 +39,12 @@
 
                                     @if (producto.Estado)
                                     {
-                                        <a class="text-danger btn btn-outline-danger" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Productos",new {ProductoID=producto.ProductoID },Context.Request.Scheme)')">Deshabilitar</a>
+                                        <a class="text-danger" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Productos",new {ProductoID=producto.ProductoID },Context.Request.Scheme)')"><i title="Deshabilitar" class="fas fa-slash"></i></a>
 
                                     }
                                     else
                                     {
-                                        <a class="text-secondary btn btn-outline-warning" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Productos",new {ProductoID=producto.ProductoID },Context.Request.Scheme)')">Activar</a>
+                                        <a class="text-warning" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Productos",new {ProductoID=producto.ProductoID },Context.Request.Scheme)')"><i title="habilitar" class="fas fa-store"></i></a>
 
                                     }
                                     <a class="text-success" href="javascript:mostrarModal2('@Url.Action("DetalleProducto","Productos",new{ProductoID=producto.ProductoID},Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del cliente" class="fas fa-book"></i></a>

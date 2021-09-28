@@ -1,0 +1,33 @@
+﻿@model BeautiSoft.Models.Entidades.Venta
+
+@{
+    Layout = null;
+}
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover" id="tabla">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">Producto</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Documento</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Producto.Nombre</td>
+                    <td>@Model.Cliente.Nombre</td>
+                    <td>@Model.Cliente.Documento</td>
+                    <td>@Model.Cantidad</td>
+                    <td>@Model.Precio</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/tabla.js"></script>
+}

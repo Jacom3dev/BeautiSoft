@@ -1,0 +1,25 @@
+﻿@model BeautiSoft.Models.Entidades.Compra
+@{ Layout = null; }
+<form method="get" asp-action="ActualizarCompra" class="bg-white rounded" onsubmit="return jQueryAjaxPost(this, 'Actualizar Compra', '¿Desea Actualizar la Compra?')">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="CompraID" />
+    <div class="form-group row">
+        <div class="col">
+            <select asp-items="@ViewBag.Productos" asp-for="ProductoID" class="form-control">
+                <option disabled selected>Seleccione</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-6">
+            <input asp-for="Precio" class="form-control" placeholder="Precio">
+            <span asp-validation-for="Precio" class="text-danger"></span>
+        </div>
+        <div class="col-6">
+            <input asp-for="Cantidad" class="form-control" placeholder="Cantidad">
+            <span asp-validation-for="Cantidad" class="text-danger"></span>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-info" name="name" value="Actualizar Compra" />
+</form>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

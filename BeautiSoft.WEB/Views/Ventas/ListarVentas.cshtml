@@ -1,7 +1,7 @@
-﻿@model List<BeautiSoft.Models.Entidades.Venta>
+﻿@model IEnumerable<BeautiSoft.Models.Entidades.Venta>
 <div class="row">
     <div class="col mt-3">
-        <a onclick="mostrarModal('@Url.Action("CrearVenta","Ventas",null,Context.Request.Scheme)','Registrar venta')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Registrar Venta</a>
+        <a onclick="mostrarModal('@Url.Action("CrearVenta","Ventas",null,Context.Request.Scheme)','Registrar venta')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-shopping-bag mr-3"></i>Registrar Venta</a>
         <table class="table table-bordered table-striped table-hover" id="tabla">
             <thead>
                 <tr class="text-center">
@@ -24,10 +24,10 @@
                       <td class="text-center">@Venta.Cantidad</td>
                       <td class="text-center">@Venta.Precio</td>
                       <td>
-                           <div class="d-flex justify-content-between">
-                               <i title="Editar" class="far fa-edit text-warning"></i>
-                               <i title="Detalle" class="fas fa-book text-success"></i>
-                           </div>
+                          <div class="d-flex justify-content-between">
+                              <a class="text-warning" href="javascript:mostrarModal('@Url.Action("Editar","Ventas",new {VentaID=Venta.VentaId},Context.Request.Scheme)','Editar Venta')"><i title="Editar" class="far fa-edit"></i></a>
+                              <a class="text-success" href="javascript:mostrarModal('@Url.Action("Detalle","Ventas",new {VentaID=Venta.VentaId},Context.Request.Scheme)','Detalle Venta')"><i title="Editar" class="fas fa-book"></i></a>
+                          </div>
                        </td>
                   </tr>
                   }
