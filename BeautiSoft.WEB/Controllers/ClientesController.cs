@@ -1,6 +1,7 @@
 ﻿using BeautiSoft.Models.Entidades;
 using BeautiSoft.Servicios.Interfaces;
 using BeautiSoft.WEB.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -19,6 +20,8 @@ namespace BeautiSoft.WEB.Controllers
         {
             _clienteServicios = clienteServicios;
         }
+
+        [Authorize]
         public async Task<IActionResult> ListarClientesAsync()
         {
             ViewBag.Title = "Gestion de clientes";

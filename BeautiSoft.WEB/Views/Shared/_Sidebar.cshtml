@@ -22,7 +22,14 @@
                     <!-- Sidebar Menu -->
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
+                            <li class="nav-item">
+                                <a asp-controller="Usuarios" asp-action="IndexUser" s class="nav-link ">
+                                    <i class="fas fa-analytics iconos"></i>
+                                    <p class="text-white">
+                                        Informes
+                                    </p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="fas fa-users iconos"></i>
@@ -85,7 +92,7 @@
                                             <p class="text-white">Servicios </p>
                                         </a>
                                     </li>
- 
+
                                     <li class="nav-item">
                                         <a asp-controller="Citas" asp-action="ListarCitas" class="nav-link">
                                             <i class="fas fa-circle  ml-2"></i>

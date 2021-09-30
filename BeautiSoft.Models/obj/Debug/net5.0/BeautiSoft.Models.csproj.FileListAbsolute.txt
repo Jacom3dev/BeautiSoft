@@ -2,7 +2,6 @@ C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Models\bin\Deb
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Models\bin\Debug\net5.0\BeautiSoft.Models.dll
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Models\bin\Debug\net5.0\ref\BeautiSoft.Models.dll
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Models\bin\Debug\net5.0\BeautiSoft.Models.pdb
-C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Models\obj\Debug\net5.0\BeautiSoft.Models.csprojAssemblyReference.cache
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Models\obj\Debug\net5.0\BeautiSoft.Models.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Models\obj\Debug\net5.0\BeautiSoft.Models.AssemblyInfoInputs.cache
 C:\Users\57311\OneDrive\Escritorio\Asp .net\BeautiSoft\BeautiSoft.Models\obj\Debug\net5.0\BeautiSoft.Models.AssemblyInfo.cs

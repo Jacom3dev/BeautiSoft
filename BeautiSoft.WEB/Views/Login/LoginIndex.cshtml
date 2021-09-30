@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model BeautiSoft.Servicios.Dtos.LoginDto
+@{ Layout = null; }
+<!DOCTYPE html>
 <html>
 <head>
     <title>Iniciar sesion</title>
@@ -13,9 +15,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous" />
 </head>
 <body class="bg-light">
-    @{
-        Layout = null;
-    }
+
     <div class="container">
         <div class="row">
             <div class="col-5 m-auto">
@@ -25,19 +25,21 @@
                         <div class="input-group-text">
                             <i class="fas fa-user"></i>
                         </div>
-                        <input type="text" class="form-control" placeholder="Usuario">
+                        <input asp-for="Email" class="form-control" placeholder="Usuario">
                     </div>
+                    <span asp-validation-for="Email" class="text-danger"></span>
                     <div class="input-group">
                         <div class="input-group-text">
                             <i class="fas fa-lock"></i>
                         </div>
-                        <input type="text" class="form-control" placeholder="Contraseña">
+                        <input asp-for="Password" class="form-control" placeholder="Contraseña">
                     </div>
+                    <span asp-validation-for="Password" class="text-danger"></span>
                     <div class="d-flex justify-content-center">
                         <button type="submit" class="btn btn-outline-info mt-3 position-relative">Iniciar Sesion</button>
                     </div>
                     <hr />
-                    <p class="text-center">¿Olvidaste la Contraseña ? <a href="#">Recuperar!</a></p>
+                    <p class="text-center">¿Olvidaste la Contraseña ? <a asp-action="OlvidePassword">Recuperar contraseña</a></p>
                 </form>
             </div>
         </div>
@@ -48,5 +50,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 </body>
 </html>

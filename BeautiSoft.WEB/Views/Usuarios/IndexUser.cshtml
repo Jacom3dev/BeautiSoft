@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BeautiSoft.Servicios.Dtos.UsuarioDto>
+<div class="row">
+    <div class="col mt-3">
+        <a onclick="mostrarModal('@Url.Action("CrearUser","Usuarios",null,Context.Request.Scheme)','Crear Usuario')" class="btn bg-site mb-3" style="color:white"><i class="fas fa-user-plus mr-2"></i>Crear Usuario </a>
+        @if (Model == null || Model.Count() == 0)
+        {<p>No existen Users</p> 
+        }
+        else
+        {
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-striped table-hover" cellpadding="0" id="tabla">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Email</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in Model)
+                    {
+                     <tr>
+                        <td>@usuario.Id</td>
+                        <td>@usuario.Email</td>
+                        <td>
+                            @if (usuario.Estado)
+                            {
+                                <span class="badge badge-warning">Activo</span> 
+                             }
+                            else
+                            {
+                                <span class="badge badge-danger">deshabilitado</span>
+                            }
+                        </td>
+                        <td>
+
+                            <div class="d-flex justify-content-between flex-wrap">
+                                <a class="text-primary" href="javascript:mostrarModal('@Url.Action("ActualizarUser","Usuarios",new {id=usuario.Id},Context.Request.Scheme)','Editar cliente')"><i title="Editar" class="fas fa-user-edit"></i></a>
+
+                                @if (usuario.Estado)
+                                {
+                                    <a class="text-danger" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Usuarios",new {id=usuario.Id },Context.Request.Scheme)')"><i title="Deshabilitar cliente" class="fas fa-user-slash"></i></a> }
+                                else
+                                {
+                                <a class="text-warning" href="javascript:cambiarEstado('@Url.Action("CambiarEstado","Usuarios",new{id=usuario.Id },Context.Request.Scheme)')"><i title="Habilitar cliente" class="fas fa-user-check"></i></a>}
+                                <a class="text-success" href="javascript:mostrarModal2('@Url.Action("DetalleUser","Usuarios",new{id=usuario.Id },Context.Request.Scheme)','Detalle del cliente')"><i title="Detalle del cliente" class="fas fa-book"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>}
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/DataTable/tabla.js"></script>
+}

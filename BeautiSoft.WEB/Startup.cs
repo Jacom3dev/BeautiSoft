@@ -1,9 +1,11 @@
-using BeautiSoft.DAL;
+﻿using BeautiSoft.DAL;
+using BeautiSoft.Models.Entidades;
 using BeautiSoft.Servicios.Interfaces;
 using BeautiSoft.Servicios.Servicios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +31,7 @@ namespace BeautiSoft.WEB
         {
             services.AddControllersWithViews();
 
-            var conexion = Configuration["ConnectionStrings:SqlServer"]; //Cadena de conexi�n
+            var conexion = Configuration["ConnectionStrings:SqlServer"]; //Cadena de conexión
             services.AddDbContext<AppDbContext>(option =>
             option.UseSqlServer(conexion)
         );
@@ -38,6 +40,23 @@ namespace BeautiSoft.WEB
             services.AddScoped<IVentaServicios, VentaServicios>();
             services.AddScoped<IServicioServicios, ServicioServicios>();
             services.AddScoped<ICompraServicios, CompraServicios>();
+            services.AddScoped<IUsuarioServicio, UsuarioServicio>();
+            services.AddIdentity<Usuario, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+              .AddDefaultUI()
+              .AddDefaultTokenProviders() //para trabajar con la confirmaci�n de email
+              .AddEntityFrameworkStores<AppDbContext>();
+            //.AddClaimsPrincipalFactory<UsuarioClaimsPrincipalFactory>();
+
+            //configuraci�n del password
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 5;
+                options.User.RequireUniqueEmail = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,7 +83,7 @@ namespace BeautiSoft.WEB
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Login}/{id?}");
+                    pattern: "{controller=Login}/{action=LoginIndex}/{id?}");
             });
         }
     }
